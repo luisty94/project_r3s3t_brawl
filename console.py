@@ -9,8 +9,17 @@ import repositories.team_repository as team_repository
 game_repository.delete_all()
 team_repository.delete_all()
 
-game_1 = Game("League of Legends")
+game_1 = Game("League of Legends - Day 1 Match")
 game_repository.save(game_1)
+
+game_2 = Game("League of Legends - Day 2 Match")
+game_repository.save(game_2)
+
+game_3 = Game("League of Legends - Day 3 Match")
+game_repository.save(game_2)
+
+game_4 = Game("League of Legends - Day 4 Match")
+game_repository.save(game_2)
 
 team_1 = Team("Queso")
 team_repository.save(team_1)
