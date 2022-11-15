@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Games</h2>
+
+{% for game in games %}
+
+<section>
+    <p>{{ game.name }}</p>
+    <a href="/games/{{ game.id }}/edit"></a>
+    <a href="/games/{{ game.id }}">Details</a>
+</section>
+
+{% endfor %}
+{% endblock %}

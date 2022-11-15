@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Teams</h2>
+
+{% for team in teams %}
+
+<section>
+    <p>{{ team.name }}</p>
+    <a href="/teams/{{ team.id }}/edit"></a>
+    <a href="/teams/{{ team.id }}">Details</a>
+</section>
+
+{% endfor %}
+{% endblock %}
