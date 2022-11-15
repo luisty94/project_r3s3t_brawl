@@ -26,3 +26,19 @@ def edit_game(id):
     game = game_repository.select(id)
     return render_template('games/edit.html', game=game)
 
+@games_blueprint.route("/games/<id>", methods=["POST"])
+def update_game(id):
+    name = request.form["name"]
+    game = Game(name, id)
+    game_repository.update(game)
+    return redirect("/games")
+
+@games_blueprint.route("/games/<id>/delete", methods=["POST"])
+def delete_game(id):
+    game_repository.delete(id)
+    return redirect("/games")
+
+@games_blueprint.route("/games/<id>")
+def show_game(id):
+    game = game_repository.select(id)
+    return render_template('games/show.html', game = game)
