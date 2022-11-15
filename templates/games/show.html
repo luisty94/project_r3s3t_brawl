@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Game Details</h2>
+
+<section>
+    <p>{{ game.name }}</p>
+    <a href="/games/{{ game.id }}/edit"></a>
+    <form action="/games/{{ game.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endblock %}
