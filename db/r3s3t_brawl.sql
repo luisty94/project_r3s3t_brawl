@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS games;
+DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS link;
+
+CREATE TABLE games (
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE teams (
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE link (
+    id SERIAL PRIMARY KEY,
+    game_id SERIAL NOT NULL REFERENCES games(id),
+    team_id SERIAL NOT NULL REFERENCES teams(id)
+);
+
