@@ -6,20 +6,11 @@ import repositories.game_repository as game_repository
 from models.team import Team
 import repositories.team_repository as team_repository
 
+from models.pvp import Pvp
+import repositories.pvp_repository as pvp_repository
+
 game_repository.delete_all()
 team_repository.delete_all()
-
-game_1 = Game("League of Legends - Day 1 Match")
-game_repository.save(game_1)
-
-game_2 = Game("League of Legends - Day 2 Match")
-game_repository.save(game_2)
-
-game_3 = Game("League of Legends - Day 3 Match")
-game_repository.save(game_2)
-
-game_4 = Game("League of Legends - Day 4 Match")
-game_repository.save(game_2)
 
 team_1 = Team("Queso")
 team_repository.save(team_1)
@@ -33,4 +24,17 @@ team_repository.save(team_3)
 team_4 = Team("Dignitas")
 team_repository.save(team_4)
 
+game_1 = Game("League of Legends")
+game_repository.save(game_1)
+
+game_2 = Game("Fortnite")
+game_repository.save(game_2)
+
+score_1 = 1
+score_2 = 2
+
+pvp_1 = Pvp("Semifinal", game_1, team_1, team_2, score_1, score_2)
+print ("this is the score")
+print (score_2)
+pvp_repository.save(pvp_1)
 pdb.set_trace()

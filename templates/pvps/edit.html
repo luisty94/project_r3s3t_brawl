@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update a Match</h2>
+
+
+<form action="/pvps/{{ pvp.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ pvp.name }}">
+    </div>
+    <div>
+        <label for="game">Game:</label>
+        <select name="game_id" id="game">
+            {% for game in games %}
+            <option value="{{ game.id }}" {% if game.id == pvp.game.id %} selected {% endif %}>
+                {{ game.name }}
+            </option>
+            {% endfor %}
+    </div>
+    <div>
+        <label for="red_team">Red Team:</label>
+        <select name="red_team_id" id="red_team">
+            {% for team in teams %}
+            <option value="{{ red_team.id }}" {% if team.id == pvp.red_team.id %} selected {% endif %}>
+                {{ team.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+        <label for="blue_team">Blue Team:</label>
+        <select name="blue_team_id" id="blue_team">
+            {% for team in teams %}
+            <option value="{{ blue_team.id }}" {% if team.id == pvp.blue_team.id %} selected {% endif %}>
+                {{ team.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="red_team_score">Red Score:</label>
+        <input type="number" id="red_team_score" name="red_team_score" value="{{ pvp.red_team_score }}" points>
+    </div>
+    <div>
+        <label for="blue_team_score">Blue Score:</label>
+        <input type="number" id="blue_team_score" name="blue_team_score" value="{{ pvp.red_team_score }}" points>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

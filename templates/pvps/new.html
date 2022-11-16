@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Match</h2>
+
+<form action="/pvps" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="game">Game:</label>
+        <select name="game_id" id="game">
+            {% for game in games %}
+            <option value="{{ game.id }}">
+                {{ game.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="team">Red Team:</label>
+        <select name="team_id" id="team">
+            {% for team in teams %}
+            <option value="{{ team.id }}">
+                {{ team.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="team">Blue Team:</label>
+        <select name="team_id" id="team">
+            {% for team in teams %}
+            <option value="{{ team.id }}">
+                {{ team.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}
