@@ -15,9 +15,9 @@ CREATE TABLE teams (
 CREATE TABLE pvps (
     id SERIAL PRIMARY KEY,
     name VARCHAR(225),
-    game_id SERIAL NOT NULL REFERENCES games(id),
-    red_team_id SERIAL NOT NULL REFERENCES teams(id),
-    blue_team_id SERIAL NOT NULL REFERENCES teams(id),
+    game_id SERIAL NOT NULL REFERENCES games(id) ON DELETE CASCADE,
+    red_team_id SERIAL NOT NULL REFERENCES teams(id) ON DELETE CASCADE,
+    blue_team_id SERIAL NOT NULL REFERENCES teams(id) ON DELETE CASCADE,
     red_team_score INT,
     blue_team_score INT 
 );

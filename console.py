@@ -32,9 +32,15 @@ game_repository.save(game_2)
 
 score_1 = 1
 score_2 = 2
+score_3 = 3
+score_4 = 2
 
 pvp_1 = Pvp("Semifinal", game_1, team_1, team_2, score_1, score_2)
+pvp_2 = Pvp("Final", game_1, team_2, team_4, score_3, score_4)
+pvp_3 = Pvp("Final2", game_1, team_2, team_4, score_3, score_4)
 print ("this is the score")
 print (score_2)
 pvp_repository.save(pvp_1)
+pvp_repository.save(pvp_2)
+pvp_repository.save(pvp_3)
 pdb.set_trace()

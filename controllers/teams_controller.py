@@ -2,6 +2,7 @@ from flask import Blueprint, Flask, redirect, render_template, request
 
 from models.team import Team
 import repositories.team_repository as team_repository
+import pdb
 
 teams_blueprint = Blueprint("teams", __name__)
 
@@ -40,5 +41,9 @@ def delete_team(id):
 
 @teams_blueprint.route("/teams/<id>")
 def show_team(id):
+
     team = team_repository.select(id)
-    return render_template('teams/show.html', team = team)
+    games_played = team_repository.get_played_games(team)
+    print("Here are the games played from the controller:")
+    print(games_played)
+    return render_template('teams/show.html', team = team, games_played = games_played)

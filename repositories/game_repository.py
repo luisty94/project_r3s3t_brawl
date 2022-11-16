@@ -18,7 +18,7 @@ def select_all():
     return games
 
 def select(id):
-    teaam = None 
+    game = None 
     sql = "SELECT * FROM games WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)

@@ -2,11 +2,13 @@ from flask import Flask, render_template
 
 from controllers.games_controller import games_blueprint
 from controllers.teams_controller import teams_blueprint
+from controllers.pvp_controller import pvps_blueprint
 
 app = Flask(__name__)
 
 app.register_blueprint(games_blueprint)
 app.register_blueprint(teams_blueprint)
+app.register_blueprint(pvps_blueprint)
 
 @app.route("/")
 def main():

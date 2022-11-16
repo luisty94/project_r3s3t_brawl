@@ -19,7 +19,7 @@
         </select>
     </div>
     <div>
-        <label for="team">Red Team:</label>
+        <label for="red_team">Red Team:</label>
         <select name="team_id" id="team">
             {% for team in teams %}
             <option value="{{ team.id }}">
@@ -29,7 +29,7 @@
         </select>
     </div>
     <div>
-        <label for="team">Blue Team:</label>
+        <label for="blue_team">Blue Team:</label>
         <select name="team_id" id="team">
             {% for team in teams %}
             <option value="{{ team.id }}">
@@ -39,7 +39,15 @@
         </select>
     </div>
     <div>
-        <input type="submit">
+        <label for="red_team_score">Red Score:</label>
+        <input type="number" id="red_team_score" name="red_team_score" placeholder="red_team_score">
+    </div>
+    <div>
+        <label for="blue_team_score">Blue Score:</label>
+        <input type="number" id="blue_team_score" name="blue_team_score" placeholder="blue_team_score">
+    </div>
+    <div>
+        <button type="submit">Add Match</button>
     </div>
 </form>
 

@@ -14,7 +14,7 @@ pvps_blueprint = Blueprint("pvps", __name__)
 @pvps_blueprint.route('/pvps')
 def pvps():
     pvps = pvp_repository.select_all()
-    return render_template('pvps/index.html', all_pvps = pvps)
+    return render_template('pvps/index.html', pvps = pvps)
 
 # NEW
 
@@ -25,43 +25,44 @@ def new_pvp():
     return render_template('pvps/new.html', games=games, teams=teams)
 
 # CREATE
-# /bitings POST create_biting()
+
 @pvps_blueprint.route('/pvps', methods=["POST"])
 def create_pvp():
     name = request.form['name']
     game_id = request.form['game_id']
-    team_id = request.form['team_id']
-    red_team_id = request.form['team_id']
+    # team_id = request.form['team_id']
+    red_team_id = request.form['red_team_id']
     blue_team_id = request.form['blue_team_id']
     red_team_score = request.form['red_team_score']
     blue_team_score = request.form['blue_team_score']
     game = game_repository.select(game_id)
-    red_team = team_repository.select(team_id)
-    blue_team = team_repository.select(team_id)
+    red_team = team_repository.select(red_team_id)
+    blue_team = team_repository.select(blue_team_id)
     new_pvp = Pvp(name, game, red_team, blue_team, red_team_score, blue_team_score)
     pvp_repository.save(new_pvp)
     return redirect('/pvps')
 
 @pvps_blueprint.route("/pvps/<id>/edit")
 def edit_pvp(id):
-    pvps = pvp_repository.select(id)
+    pvp = pvp_repository.select(id)
     games = game_repository.select_all()
-    teams = team_repository.select_all()
-    return render_template('pvps/edit.html', pvps=pvps, games=games, teams=teams)
+    red_team = team_repository.select_all()
+    blue_team = team_repository.select_all()
+    return render_template('pvps/edit.html', pvp=pvp, games=games, red_team = red_team, blue_team = blue_team)
 
 # UPDATE
 @pvps_blueprint.route("/pvps/<id>", methods = ["POST"])
 def update_pvp(id):
     name = request.form['name']
     game_id = request.form['game_id']
-    team_id = request.form['team_id']
-    red_team_id = request.form['team_id']
+    # team_id = request.form['team_id']
+    red_team_id = request.form['red_team_id']
     blue_team_id = request.form['blue_team_id']
     red_team_score = request.form['red_team_score']
     blue_team_score = request.form['blue_team_score']
     game = game_repository.select(game_id)
-    red_team = team_repository.select(team_id)
-    blue_team = team_repository.select(team_id)
+    red_team = team_repository.select(red_team_id)
+    blue_team = team_repository.select(blue_team_id)
     pvp = Pvp(name, game, red_team, blue_team, red_team_score, blue_team_score)
     pvp_repository.update(pvp)
     return redirect('/pvps')

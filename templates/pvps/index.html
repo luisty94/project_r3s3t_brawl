@@ -6,7 +6,7 @@
 {% for pvp in pvps %}
 
 <section>
-    <p>{{ pvp.name}} : {{ pvp.game.name }} : {{ pvp.team.name }} vs {{ pvp.team.name }}</p>
+    <p>{{ pvp.name}} : {{ pvp.game.name }} : {{ pvp.red_team.name }} vs {{ pvp.blue_team.name }} Red Score: {{ pvp.red_team_score }} Blue Score: {{ pvp.blue_team_score }}</p>
     <a href="/pvps/{{ pvp.id }}/edit">Edit</a>
     <form action="/pvps/{{ pvp.id }}/delete" method="POST">
         <input type="submit" value="Delete">

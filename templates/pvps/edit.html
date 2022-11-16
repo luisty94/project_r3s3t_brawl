@@ -17,21 +17,23 @@
                 {{ game.name }}
             </option>
             {% endfor %}
+        </select>
     </div>
     <div>
         <label for="red_team">Red Team:</label>
-        <select name="red_team_id" id="red_team">
+        <select name="team_id" id="team">
             {% for team in teams %}
-            <option value="{{ red_team.id }}" {% if team.id == pvp.red_team.id %} selected {% endif %}>
+            <option value="{{ team.id }}" {% if team.id == pvp.red_team.id %} selected {% endif %}>
                 {{ team.name }}
             </option>
             {% endfor %}
         </select>
     </div>
+    <div>
         <label for="blue_team">Blue Team:</label>
-        <select name="blue_team_id" id="blue_team">
+        <select name="team_id" id="team">
             {% for team in teams %}
-            <option value="{{ blue_team.id }}" {% if team.id == pvp.blue_team.id %} selected {% endif %}>
+            <option value="{{ team.id }}" {% if team.id == pvp.blue_team.id %} selected {% endif %}>
                 {{ team.name }}
             </option>
             {% endfor %}
@@ -43,7 +45,7 @@
     </div>
     <div>
         <label for="blue_team_score">Blue Score:</label>
-        <input type="number" id="blue_team_score" name="blue_team_score" value="{{ pvp.red_team_score }}" points>
+        <input type="number" id="blue_team_score" name="blue_team_score" value="{{ pvp.blue_team_score }}" points>
     </div>
     <div>
         <input type="submit">
