@@ -46,10 +46,10 @@ def update(team):
 def get_played_games(team):
     games = []
     # sql = "SELECT * FROM pvps LEFT JOIN games ON pvps.game_id = game.id WHERE blue_team_id = %s OR red_team_id = %s";
-    sql = "SELECT * FROM pvps LEFT JOIN games ON pvps.game_id = games.id WHERE red_team_id = %s AND blue_team_id = %s"
-    values = [team.id]
+    sql = "SELECT * FROM pvps LEFT JOIN games ON pvps.game_id = games.id WHERE red_team_id = %s OR blue_team_id = %s"
+    values = [team.id, team.id]
     results = run_sql(sql, values)
-    print(results)
+    print(team.id)
     for result in results:
         # Return PVP objects so we can show the name of the match instead of the name of the game being played
         game = Game(result["name"], result["id"])

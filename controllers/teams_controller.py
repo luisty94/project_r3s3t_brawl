@@ -44,6 +44,7 @@ def show_team(id):
 
     team = team_repository.select(id)
     games_played = team_repository.get_played_games(team)
+    
     print("Here are the games played from the controller:")
     print(games_played)
     return render_template('teams/show.html', team = team, games_played = games_played)

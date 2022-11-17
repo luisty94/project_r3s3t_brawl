@@ -21,7 +21,7 @@
     </div>
     <div>
         <label for="red_team">Red Team:</label>
-        <select name="team_id" id="team">
+        <select name="red_team_id" id="team">
             {% for team in teams %}
             <option value="{{ team.id }}" {% if team.id == pvp.red_team.id %} selected {% endif %}>
                 {{ team.name }}
@@ -31,7 +31,7 @@
     </div>
     <div>
         <label for="blue_team">Blue Team:</label>
-        <select name="team_id" id="team">
+        <select name="blue_team_id" id="team">
             {% for team in teams %}
             <option value="{{ team.id }}" {% if team.id == pvp.blue_team.id %} selected {% endif %}>
                 {{ team.name }}

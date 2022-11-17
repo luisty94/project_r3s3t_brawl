@@ -46,9 +46,8 @@ def create_pvp():
 def edit_pvp(id):
     pvp = pvp_repository.select(id)
     games = game_repository.select_all()
-    red_team = team_repository.select_all()
-    blue_team = team_repository.select_all()
-    return render_template('pvps/edit.html', pvp=pvp, games=games, red_team = red_team, blue_team = blue_team)
+    teams = team_repository.select_all()
+    return render_template('pvps/edit.html', pvp=pvp, games=games, teams=teams)
 
 # UPDATE
 @pvps_blueprint.route("/pvps/<id>", methods = ["POST"])
