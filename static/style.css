@@ -1,3 +1,6 @@
+
+p, h1, h2, h3, h4, h5, h6, ul, ol { margin: 0 }
+
 header {
     background-color: rgb(169, 185, 140);
     color: black;
@@ -5,7 +8,7 @@ header {
     padding-right: 3rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border: 1rem dashed black;
+    border: 1rem dashed rgb(74, 111, 71);
 }
 nav > ul {
     display: flex;
@@ -13,4 +16,27 @@ nav > ul {
     list-style: none;
     padding: 0;
     gap: 2rem;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    gap: 2rem;
+}
+
+nav > ul > li > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    background-color: rgb(201, 225, 201);
+    gap: 1rem;
+    border-top: 1px solid black;
+}
+
+h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
