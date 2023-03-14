@@ -21,9 +21,9 @@ class TestPvp (unittest.TestCase):
         self.assertEqual("Tournament", self.pvp.name)
 
     def test_pvp_has_game(self):
-        self.assertEqual("Holo", self.pvp.game)
+        self.assertEqual("Holo", self.pvp.game.name)
 
     def test_pvp_has_red_team(self):
-        self.assertEqual("Quesote", self.pvp.red_team)
+        self.assertEqual("Quesote", self.pvp.red_team.name)
 
     

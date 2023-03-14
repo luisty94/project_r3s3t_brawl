@@ -16,6 +16,11 @@ def select_all():
         game = Game(result["name"], result["id"])
         games.append(game)
     return games
+#create a games list 
+#retrieve all games from database 
+#create a game object
+#add game to list
+#return all games in the list
 
 def select(id):
     game = None 
